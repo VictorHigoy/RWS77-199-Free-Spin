@@ -12,7 +12,7 @@ const notoSansSC = Noto_Sans_SC({
 export default function HeroSection() {
   return (
     <div
-      className="relative -mb-[10%] md:-mb-[8%] lg:-mb-[5.8%] bg-no-repeat overflow-hidden bg-cover bg-top flex items-center justify-center"
+      className="relative -mb-[7.5%] md:-mb-[8.5%] lg:-mb-[7%] xl:-mb-[5.8%] bg-no-repeat overflow-hidden bg-cover bg-top flex items-center justify-center"
       style={{
         backgroundImage: "url('/images/firstRow/hero-bg.svg')",
       }}
