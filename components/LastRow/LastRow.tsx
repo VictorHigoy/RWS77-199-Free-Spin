@@ -49,7 +49,7 @@ export default function LastRow() {
                 alt="Winners"
                 width={700}
                 height={700}
-                src="/images/lastRow/winners.png"
+                src="/images/lastRow/Winners.png"
                 className="h-auto w-full"
               />
               <button className="mt-1 w-[65%] cursor-pointer hover:scale-105 transition-all">
