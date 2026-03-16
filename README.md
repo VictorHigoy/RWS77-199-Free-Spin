@@ -1,36 +1,15 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+The page is divided into five main vertical sections: Header, HeroSection, MiddleRow, LastRow, and Footer. These sections follow the normal document flow, with percentage-based negative bottom margins used to create subtle overlaps between sections and achieve a layered background effect that scales across screen sizes.
 
-## Getting Started
+Images use w-full h-auto within percentage-based or max-w containers so they scale with their parent elements instead of fixed pixel sizes. Decorative elements (gems, coins, scatter, and 1000x icons) are absolutely positioned using percentage offsets, ensuring they stay visually aligned as the layout resizes.
 
-First, run the development server:
+The HeroSection switches from a column layout on mobile to a row layout on larger screens, with slight overlap between the branding visuals and the form container. Form inputs use clamp() for padding and font sizing to allow smooth scaling across devices.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+The MiddleRow uses a three-column flex layout where the side icons take 17% each and the center phone content takes 66%, allowing the entire section to scale proportionally. The LastRow background uses clip-path: ellipse(...) to create a curved top edge, while coin images are placed outside the clipped container to prevent them from being cut off.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Assumptions & Tradeoffs
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Section overlaps rely on percentage-based negative margins, which require minor adjustments across breakpoints. The Header is permanently removed from the DOM once dismissed, requiring a page refresh to restore it. The form inputs are currently presentational only and do not include validation or submission logic.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+-webkit-text-stroke is used to simulate a heavier weight for Chinese text, and overflow-x: hidden is applied globally to prevent horizontal scrolling caused by wide elements or decorative assets extending beyond the viewport.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Tech Stacks: NextJS, Typescript, TailwindCSS
